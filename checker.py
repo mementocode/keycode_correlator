@@ -1,7 +1,5 @@
-import bitstream
 import socket
 import bitstream
-import time
 
 IN_UDP_PORT = 5001
 out_udp_port = 5000
@@ -37,7 +35,8 @@ while True:
         # continue
     elif buf == access_code:
         print('locked')
-        while True:
+        buf = []
+        for i in range(480):
             out_data = []
             for i in range(8):
                 stream.write(in_sock.recv(1))
